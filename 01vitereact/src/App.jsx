@@ -2,7 +2,7 @@
 function App() {
 
 
-  return (
+  return ( 
     <h1>Al Maalik</h1>
   )
 }
