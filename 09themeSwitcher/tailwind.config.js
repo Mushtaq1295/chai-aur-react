@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode:"class",
+  darkMode:"class", //This is the key modification in this project to change the color
   theme: {
     extend: {},
   },
