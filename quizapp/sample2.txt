@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+// import './Questions.css'; // Import a separate CSS file for custom styles (optional)
+
+function Questions() {
+  // State to hold the selected answers
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [result, setResult] = useState(null); // State to hold the quiz result
+
+  // Correct answers
+  const correctAnswers = {
+    question1: 'immersion', // Correct answer for Question 1
+    question2: 'javascript', // Correct answer for Question 2
+  };
+
+  const handleOptionChange = (questionId, selectedOption) => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionId]: selectedOption,
+    }));
+  };
+
+  
+
+  return (
+    <div className="p-4">
+      <div className="box-content w-full h-96 mt-24 border-2 border-black rounded-lg bg-blue-950 p-4">
+        <h1 className="text-xl text-white font-bold text-left ml-3 mt-3">Quiz</h1>
+        
+        {/* Question 1 */}
+        <div className='text-2xl text-white text-left ml-3 mt-8'>
+          <h2>1. What is the best way to learn a new language?</h2>
+          <div className="mt-4">
+            <label className="custom-radio flex items-center mt-2">
+              <input
+                type="radio"
+                name="question1"
+                value="immersion"
+                checked={selectedAnswers.question1 === "immersion"}
+                onChange={() => handleOptionChange('question1', 'immersion')}
+              />
+              <span className="ml-2 border-2 border-indigo-500 rounded-lg">Immersion (living in a country where the language is spoken)</span>
+            </label>
+            <label className="custom-radio flex items-center mt-2">
+              <input
+                type="radio"
+                name="question1"
+                value="classroom"
+                checked={selectedAnswers.question1 === "classroom"}
+                onChange={() => handleOptionChange('question1', 'classroom')}
+              />
+              <span className="ml-2">Classroom learning (formal classes)</span>
+            </label>
+            <label className="custom-radio flex items-center mt-2">
+              <input
+                type="radio"
+                name="question1"
+                value="self-study"
+                checked={selectedAnswers.question1 === "self-study"}
+                onChange={() => handleOptionChange('question1', 'self-study')}
+              />
+              <span className="ml-2">Self-study (books, apps, online courses)</span>
+            </label>
+            <label className="custom-radio flex items-center mt-2">
+              <input
+                type="radio"
+                name="question1"
+                value="tutoring"
+                checked={selectedAnswers.question1 === "tutoring"}
+                onChange={() => handleOptionChange('question1', 'tutoring')}
+              />
+              <span className="ml-2">Tutoring (one-on-one sessions with a tutor)</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default Questions;
